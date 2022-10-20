@@ -4,6 +4,12 @@
     <h1>Admin &raquo; All Categories</h1>
   </header>
 
+    <div class="well">
+    <%= link_to '+ New Category', admin_categories_url, class: 'btn btn-info' %>
+  </div>
+
+<br>
+
   <% @categories.each do |item| %>
    <h3> 🌱 <%=  item.name %> </h3>
         <% end %>
