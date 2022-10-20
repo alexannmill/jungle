@@ -2,11 +2,36 @@
 
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
+    <h3></h3>
   </header>
+  <div>
+    <table class="table table-bordered">
+     <thead>
+        <tr>
+          <th>Product</th>
+          <th>Descripstion</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @items = LineItem.where(order_id: @order.id) %>
+    <% @items.each do |item| %>
+            <%= render :partial => 'line_item',locals:{ item: item, product: Product.find_by(id: item.product_id) }%>
+    <% end %>
+        </tbody>
+      </table>
+  </div>
+  <br>
 
+  <h4>Order total: <%= humanized_money_with_symbol @order.total_cents/100.0 %></h4>
+  
+  <h4>Confirmation sent to <%= @order.email %></h4>
+  <br>
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
+
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
