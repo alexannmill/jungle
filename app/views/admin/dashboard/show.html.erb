@@ -1,2 +1,9 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<br>
+
+<h1>Store Overview </h1>
+
+<br>
+
+<p> Currently there are <%= @categoriescount %>  catagories with <%= @productcount %> products in stock.</p>
+
+<%= link_to "Add More Products", admin_products_url, class: 'btn btn-sm btn-success' %>
