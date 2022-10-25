@@ -70,7 +70,7 @@ RSpec.describe User, type: :model do
      expect(test).to be_present
     end
 
-    it'should authenticate user with email input with mix cases' do
+    it'should authenticate user with email input with extra spaces' do
      test = User.authenticate_with_credentials('jOHn@doe.cOm', 'password')
      expect(test).to be_present
     end
