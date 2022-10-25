@@ -7,5 +7,6 @@ describe("Product Details", () => {
     cy.get(".products article").first().click();
     cy.get(".product-detail p").should("be.visible");
     cy.get(".product-detail h1").should("be.visible");
+    cy.get(".quantity span").first().should("be.visible");
   });
 });
