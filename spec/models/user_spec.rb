@@ -48,20 +48,32 @@ RSpec.describe User, type: :model do
       expect(@user).not_to be_valid
     end
   end
-
+  
   describe '.authenticate_with_credentials' do
-    it'should authenticate user with correct credentials' do
+    
+    before do 
       @user = User.create(
         'name' => 'John Doe',
         'email' => 'john@doe.com',
-        'password' => 'pass',
-        'password_confirmation' => 'pass'
+        'password' => 'password',
+        'password_confirmation' => 'password'
       )
-      @userAuth = User.authenticate_with_credentials(
-        'email' => 'john@doe.com',
-        'password' => 'password'
-      )
-      expect(@userAuth).to eq(@user)
-    end 
+    end
+    
+    it'should authenticate user with correct credentials' do
+     test = User.authenticate_with_credentials('john@doe.com', 'password')
+     expect(test).to be_present
+    end
+
+    it'should authenticate user with email input with extra spaces' do
+     test = User.authenticate_with_credentials('  john@doe.com ', 'password')
+     expect(test).to be_present
+    end
+
+    it'should authenticate user with email input with extra spaces' do
+     test = User.authenticate_with_credentials('jOHn@doe.cOm', 'password')
+     expect(test).to be_present
+    end
   end
 end
+  
