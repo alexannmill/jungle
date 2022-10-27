@@ -14,9 +14,9 @@
   <%= render 'layouts/top_nav' %>
   <div class=logsign>
     <% if current_user %>
-      Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+      Signed in as <%= current_user.name %> | <%= link_to "Logout", [:session, id: current_user.id], method: :delete %>
     <% else %>
-      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+      <%= link_to 'Login', '/login' %> | <%= link_to  'Signup', '/signup' %>
     <% end %>
   </div>
   
