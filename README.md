@@ -2,6 +2,9 @@
 
 A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
 
+[Jungle.webm](https://user-images.githubusercontent.com/106779840/198205976-c7c1b27a-484e-4232-9bcd-fb87f8b97676.webm)
+
+
 ## Setup
 
 1. Run `bundle install` to install dependencies
