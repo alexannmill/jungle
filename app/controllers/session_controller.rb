@@ -3,9 +3,10 @@ class SessionController < ApplicationController
   def new
   end
 
+# for log in auth with 
   def create
     @user = User.find_by_email(params[:email])
-    if @user && @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:email], params[:password])
       session[:user_id] = @user.id
       redirect_to '/'
     else

@@ -92,6 +92,12 @@ form.button_to {
 
 .logsign {
   float: right;
+  margin: 3px;
+  margin-right: 1em;
+  a {
+    padding: 2px;
+    margin: 4px;
+  }
 }
 .sticky-nav {
   background: green;

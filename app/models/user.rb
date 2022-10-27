@@ -10,8 +10,8 @@ class User < ApplicationRecord
     # set user with email, 
     # strip away extra spaces and downcase all letters in email
     @user = User.find_by_email(email.strip.downcase)
-    # auth with method in users 
-    if @user && @user.authenticate(email, password)
+    # auth with email and password
+    if @user && @user.authenticate(password)
       return @user 
     else
       return nil
